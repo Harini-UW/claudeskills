@@ -23,4 +23,5 @@ job-search/
 Then:
 1. Edit the cover letter template line in `cover-letter-skill.md` (`Hi, I'm [Name], a [Job Title / Discipline]...`) with your own details.
 2. Install each file as a skill (a folder with the file renamed to `SKILL.md`), or paste it into your Claude project instructions.
-3. The skills also expect the Word-file helper scripts (`scripts/office/`) and `pandoc`, `python`, and the `docx` npm package to be available.
+3. The resume skill enforces a one-page limit. To change it, edit the "One-Page Hard Constraint" section in `resume-skill.md`.
+4. If you run the skills locally, they expect the Word-file helper scripts (`scripts/office/`) and `pandoc`, `python`, and the `docx` npm package. None of these are required when using the skills in claude.ai.
