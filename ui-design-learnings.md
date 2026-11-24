@@ -132,6 +132,24 @@ Small motion makes an app feel alive, but only if it is quick, purposeful and st
 - **Use meaning, not decoration.** Re-use the same icon for the same thing everywhere (mail = email, phone = call, calendar = meeting), and drop the icon when the label alone is clear.
 - **Custom art is separate from the icon set.** Mascots, mood faces and doodles are illustrations: draw them as their own SVGs in the app's palette, and don't mix them into the line-icon set.
 
+## Adapting reference art (mood faces, stickers, doodles)
+
+- **Borrow the idea, not the pixels.** From a sticker sheet, take the personality (blob shapes, tiny dot eyes, one-line mouths, small accents like sparkles or hearts) and redraw it yourself as simple SVG. Don't trace someone else's artwork.
+- **Recolour to the palette first.** Map every reference colour to the app's tokens: shades of the accent blue for fills, the ink colour for line-work, and white for highlights. A sheet in six colours becomes one hue in three or four lightness steps, so the faces stay distinct without adding colours.
+- **Build faces from a few parts.** A body shape (rounded blob, cloud, drop), a pair of eyes, a mouth, and one optional accent. Keep a shared `viewBox` (for example 48×48) and a `MOODS` array so adding a new one is one entry.
+- **Match mood to meaning and progression.** Quiet flat face for the first stage, a smile for contact made, sparkly eyes for something exciting, a laugh for done, a heart for success, a sleepy face for dormant. The order of the faces should read as a story.
+- **Show state with the same art.** Current = full colour and slightly larger; completed = full colour; upcoming = grayscale at about 45% opacity, full colour on hover. Don't draw separate "disabled" versions.
+- **Line-art doodles (stickers with outlines):** use a 2px navy stroke with round caps on a white fill, so they read on soft cards. Add one prop tinted with the accent (an envelope, a phone) and let the character peek from a card edge, clipped by `overflow:hidden`, rather than sitting inside a box.
+- **Keep size and weight consistent.** All characters share the same stroke width, head size and eye size. Test them at the real size (44–60px). Details that vanish at that size should be dropped.
+- **Give each one a job.** A character that shows a stage, a count or an empty state is welcome. A character that is only decoration should go.
+- **Check them in a screenshot.** Tiny faces fail in ways code can't show: crossed eyes, mouths off-centre, accents that look like bugs.
+
+## Ask for inspiration when none is given
+
+- **If the person hasn't shared any inspiration, ask for it before designing.** A reference image, a site they like or a screenshot of an app they use gives the look, density and personality far more reliably than guessing. Ask once and briefly (for example: "Do you have a reference or a site whose look you like? A screenshot is perfect.") and offer to proceed with the defaults in this file if they don't have one.
+- **Ask again at the points where taste decides**: illustrations or mascots, icon style, and any big layout change (sidebar, dashboard, onboarding). In this project the best results came right after the person pasted a reference (the sticker sheet and the dashboard sidebar).
+- **Use references well.** Say which parts you took (layout, spacing, a stat-card idea) and which you left out, and keep the app's own palette instead of the reference's colours.
+
 ## Checklist before saying a UI is done
 
 - [ ] Anything on screen that isn't needed?
@@ -147,3 +165,4 @@ Small motion makes an app feel alive, but only if it is quick, purposeful and st
 - [ ] Every edit lives where the person does that job (owner in the table, contacts in Communications)?
 - [ ] Animations only use transform and opacity, are under about 0.3s, and respect reduced-motion?
 - [ ] One icon family with one stroke width, using currentColor, with labels on icon-only buttons?
+- [ ] Did I ask for inspiration if none was given, and did I recolour any reference art to the palette?
